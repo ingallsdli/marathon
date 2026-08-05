@@ -22,6 +22,8 @@ const BASELINE = {
       name: "Tokyo",
       full: "Tokyo Marathon",
       flag: "\u{1F1EF}\u{1F1F5}",
+      cc: "jp",
+      drawOdds: "~8% (general lottery)",
       site: "marathon.tokyo",
       applyUrl: "https://www.marathon.tokyo/en/participants/",
       charityUSD: "from ~$700 bid",
@@ -53,6 +55,8 @@ const BASELINE = {
       name: "Boston",
       full: "Boston Marathon",
       flag: "\u{1F1FA}\u{1F1F8}",
+      cc: "us",
+      drawOdds: "n/a \u2014 time qualifier",
       site: "baa.org",
       applyUrl: "https://www.baa.org/races/boston-marathon/enter",
       charityUSD: "from ~$5,000",
@@ -84,38 +88,38 @@ const BASELINE = {
       name: "London",
       full: "TCS London Marathon",
       flag: "\u{1F1EC}\u{1F1E7}",
+      cc: "gb",
+      drawOdds: "~1.3% (ballot)",
       site: "londonmarathonevents.co.uk",
       applyUrl: "https://www.tcslondonmarathon.com/enter/how-to-enter",
       charityUSD: "from ~$2,800",
-      charityNote: "Charity minimums typically \xA32,200\u2013\xA32,500 (~$2,800\u2013$3,200). The biggest single route into London.",
-      buffer: "GFA capped at 6,000 \u2014 a cutoff faster than the standard can apply",
+      charityNote: "Charity minimums typically \xA32,200\u2013\xA32,500 (~$2,800\u2013$3,200). For a US resident this is the most reliable route into London.",
+      buffer: "N/A for US residents \u2014 no time route (see note)",
       editions: [
         { year: 2026, date: "2026-04-26", label: "Sun, Apr 26, 2026", status: "completed" },
         { year: 2027, date: "2027-04-24", label: "Sat\u2013Sun, Apr 24\u201325, 2027", status: "confirmed" },
         { year: 2028, date: "2028-04-23", label: "Late Apr 2028", status: "projected" }
       ],
       entry: {
-        method: "Public ballot",
+        method: "International ballot (US residents)",
         forYear: 2028,
         windows: [
           { label: "2027 ballot (closed \u2014 results out Jul 9, 2026)", open: "2026-04-24", close: "2026-05-01", results: "2026-07-09", status: "confirmed" },
           { label: "2028 ballot", open: "2027-04-26", close: "2027-05-03", results: "2027-07-09", status: "projected" }
         ],
         odds: "~1.3% \u2014 the 2027 ballot drew a record 1,338,544 applications for ~18,000 ballot places",
-        other: "Good for Age (UK residents, apps open Oct 2026), charity (\xA32,500+ fundraising), club ballot, official tour operators. 2027 is a two-day, 100,000-runner edition."
+        other: "For US residents: international ballot, charity (\xA32,200\u2013\xA33,000 fundraising), or an official US tour operator. Good for Age is UK-residents only. 2027 is a two-day, 100,000-runner edition."
       },
-      qt: {
-        basis: "Good for Age \xB7 UK residents \xB7 age when you ran the time",
-        M: { "40-44": "2:57:00", "45-49": "3:02:00" },
-        W: { "40-44": "3:43:00", "45-49": "3:46:00" }
-      },
-      qtNote: "GFA window for 2027: Oct 1, 2025 \u2013 Sep 30, 2026. 6,000 places, fastest-first, not guaranteed."
+      qt: null,
+      qtNote: "No time qualifier for US residents. Good for Age is UK-residents only. The only time-based route open to non-UK runners is Championship Entry (roughly sub-2:38 men / sub-3:10 women) \u2014 but it requires a paid UK Athletics club membership, so it's impractical for most Americans. Realistic US routes: the international ballot, a charity place, or a US tour operator."
     },
     {
       id: "capetown",
       name: "Cape Town",
       full: "Sanlam Cape Town Marathon",
       flag: "\u{1F1FF}\u{1F1E6}",
+      cc: "za",
+      drawOdds: "not published",
       site: "capetownmarathon.com",
       applyUrl: "https://www.capetownmarathon.com/",
       charityUSD: "~$2,000\u20135,000",
@@ -144,6 +148,8 @@ const BASELINE = {
       name: "Sydney",
       full: "TCS Sydney Marathon",
       flag: "\u{1F1E6}\u{1F1FA}",
+      cc: "au",
+      drawOdds: "~33% (2026 ballot)",
       site: "tcssydneymarathon.com",
       applyUrl: "https://www.tcssydneymarathon.com/",
       charityUSD: "from ~$2,500",
@@ -175,6 +181,8 @@ const BASELINE = {
       name: "Berlin",
       full: "BMW Berlin Marathon",
       flag: "\u{1F1E9}\u{1F1EA}",
+      cc: "de",
+      drawOdds: "~20% (lottery)",
       site: "bmw-berlin-marathon.com",
       applyUrl: "https://www.bmw-berlin-marathon.com/en/registration/",
       charityUSD: "from ~$1,100",
@@ -206,6 +214,8 @@ const BASELINE = {
       name: "Chicago",
       full: "Bank of America Chicago Marathon",
       flag: "\u{1F1FA}\u{1F1F8}",
+      cc: "us",
+      drawOdds: "~20\u201325% (drawing)",
       site: "chicagomarathon.com",
       applyUrl: "https://www.chicagomarathon.com/runners/entry-information/",
       charityUSD: "from ~$2,200",
@@ -237,6 +247,8 @@ const BASELINE = {
       name: "NYC",
       full: "TCS New York City Marathon",
       flag: "\u{1F1FA}\u{1F1F8}",
+      cc: "us",
+      drawOdds: "~3\u20134% (drawing)",
       site: "nyrr.org",
       applyUrl: "https://www.tcsnycmarathon.org/",
       charityUSD: "from ~$3,000",
@@ -268,6 +280,8 @@ const BASELINE = {
       name: "Shanghai",
       full: "Shanghai Marathon",
       flag: "\u{1F1E8}\u{1F1F3}",
+      cc: "cn",
+      drawOdds: "n/a \u2014 candidate",
       site: "shmarathon.com",
       applyUrl: "https://www.shmarathon.com/",
       candidate: true,
@@ -299,6 +313,32 @@ const fmtShort = (s) => {
 };
 const fmtNoYear = (s) => parseDate(s).toLocaleDateString("en-US", { month: "short", day: "numeric" });
 const daysUntil = (s, now) => Math.ceil((parseDate(s) - now) / DAY);
+const MARATHON_MILES = 26.2188;
+const TRAIN_WEEKS = 18;
+function pacePerMile(hhmmss) {
+  if (!hhmmss) return null;
+  const p = hhmmss.split(":").map(Number);
+  let secs;
+  if (p.length === 3) secs = p[0] * 3600 + p[1] * 60 + p[2];
+  else if (p.length === 2) secs = p[0] * 60 + p[1];
+  else return null;
+  const per = secs / MARATHON_MILES;
+  const m = Math.floor(per / 60);
+  const s = Math.round(per % 60);
+  return `${m}:${String(s).padStart(2, "0")}`;
+}
+function trainingStartDate(raceDateStr) {
+  return new Date(parseDate(raceDateStr).getTime() - TRAIN_WEEKS * 7 * DAY);
+}
+const fmtDateObj = (d) => d.toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric" });
+function oddsColor(s) {
+  const m = s.match(/(\d+(?:\.\d+)?)/);
+  if (!m || /n\/a|not published|qualifier|candidate/i.test(s)) return "#8CA0BF";
+  const v = parseFloat(m[1]);
+  if (v >= 20) return "#3CD98F";
+  if (v >= 5) return "#FFB525";
+  return "#FF6B6B";
+}
 function windowState(w, now) {
   const open = parseDate(w.open);
   const close = new Date(parseDate(w.close).getTime() + DAY - 1);
@@ -355,6 +395,45 @@ const C = {
 const fontDisplay = "'Barlow Condensed', 'Arial Narrow', sans-serif";
 const fontBody = "'Barlow', 'Helvetica Neue', sans-serif";
 const fontMono = "'IBM Plex Mono', 'SFMono-Regular', Consolas, monospace";
+function Flag({ cc, emoji, size = 22 }) {
+  const h = Math.round(size * 0.75);
+  return /* @__PURE__ */ React.createElement("span", { style: { display: "inline-flex", alignItems: "center", verticalAlign: "middle" } }, /* @__PURE__ */ React.createElement(
+    "img",
+    {
+      src: `https://flagcdn.com/w40/${cc}.png`,
+      srcSet: `https://flagcdn.com/w80/${cc}.png 2x`,
+      width: size,
+      height: h,
+      alt: cc.toUpperCase(),
+      loading: "lazy",
+      style: { borderRadius: 2, boxShadow: "0 0 0 1px rgba(255,255,255,0.12)", objectFit: "cover", display: "block" },
+      onError: (e) => {
+        const s = e.target.nextSibling;
+        e.target.style.display = "none";
+        if (s) s.style.display = "inline-flex";
+      }
+    }
+  ), /* @__PURE__ */ React.createElement(
+    "span",
+    {
+      style: {
+        display: "none",
+        alignItems: "center",
+        justifyContent: "center",
+        width: size,
+        height: h,
+        borderRadius: 2,
+        background: C.line,
+        color: C.paper,
+        fontFamily: fontDisplay,
+        fontSize: size * 0.42,
+        fontWeight: 700,
+        letterSpacing: "0.03em"
+      }
+    },
+    cc.toUpperCase()
+  ));
+}
 function StatusPill({ status }) {
   const map = {
     confirmed: { txt: "CONFIRMED", color: C.green, bg: "rgba(60,217,143,0.12)" },
@@ -462,10 +541,10 @@ function MajorsTracker() {
     },
     /* @__PURE__ */ React.createElement("div", { style: { position: "absolute", top: 0, left: 0, right: 0, height: 3, background: `repeating-linear-gradient(90deg, ${C.amber} 0 14px, transparent 14px 28px)`, opacity: 0.5 } }),
     /* @__PURE__ */ React.createElement("div", { style: { textAlign: "center", fontFamily: fontDisplay, fontSize: 12, letterSpacing: "0.24em", color: C.slate } }, "NEXT ENTRY DEADLINE"),
-    /* @__PURE__ */ React.createElement("div", { style: { textAlign: "center", fontFamily: fontDisplay, fontWeight: 700, fontSize: "clamp(18px, 3.4vw, 26px)", letterSpacing: "0.04em", margin: "6px 0 16px" } }, nextEvent.race.flag, " ", nextEvent.label.toUpperCase(), /* @__PURE__ */ React.createElement("span", { style: { marginLeft: 10, verticalAlign: "middle" } }, /* @__PURE__ */ React.createElement(StatusPill, { status: nextEvent.status }))),
+    /* @__PURE__ */ React.createElement("div", { style: { textAlign: "center", fontFamily: fontDisplay, fontWeight: 700, fontSize: "clamp(18px, 3.4vw, 26px)", letterSpacing: "0.04em", margin: "6px 0 16px" } }, /* @__PURE__ */ React.createElement("span", { style: { marginRight: 8, verticalAlign: "middle" } }, /* @__PURE__ */ React.createElement(Flag, { cc: nextEvent.race.cc, emoji: nextEvent.race.flag, size: 26 })), nextEvent.label.toUpperCase(), /* @__PURE__ */ React.createElement("span", { style: { marginLeft: 10, verticalAlign: "middle" } }, /* @__PURE__ */ React.createElement(StatusPill, { status: nextEvent.status }))),
     /* @__PURE__ */ React.createElement(ClockDigits, { ...cd }),
     /* @__PURE__ */ React.createElement("div", { style: { textAlign: "center", fontFamily: fontMono, fontSize: 12, color: C.slate, marginTop: 14 } }, nextEvent.t.toLocaleDateString("en-US", { weekday: "short", month: "long", day: "numeric", year: "numeric" }))
-  ), upcomingStrip.length > 0 && /* @__PURE__ */ React.createElement("div", { style: { display: "flex", gap: 10, overflowX: "auto", padding: "14px clamp(14px, 4vw, 36px) 4px" } }, upcomingStrip.map((e, i) => /* @__PURE__ */ React.createElement("div", { key: i, style: { minWidth: 210, flex: "0 0 auto", border: `1px solid ${C.line}`, borderRadius: 8, background: C.card, padding: "10px 12px" } }, /* @__PURE__ */ React.createElement("div", { style: { fontFamily: fontDisplay, fontWeight: 600, fontSize: 14, letterSpacing: "0.04em" } }, e.race.flag, " ", e.label), /* @__PURE__ */ React.createElement("div", { style: { fontFamily: fontMono, fontSize: 12, color: C.amber, marginTop: 4 } }, e.t.toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric" })), /* @__PURE__ */ React.createElement("div", { style: { marginTop: 6 } }, /* @__PURE__ */ React.createElement(StatusPill, { status: e.status }))))), /* @__PURE__ */ React.createElement("div", { style: { display: "flex", gap: 14, flexWrap: "wrap", alignItems: "center", padding: "16px clamp(14px, 4vw, 36px) 6px" } }, /* @__PURE__ */ React.createElement("div", { style: { fontFamily: fontDisplay, fontSize: 12, letterSpacing: "0.2em", color: C.slate } }, "QUALIFYING TIMES FOR"), /* @__PURE__ */ React.createElement(Toggle, { ariaLabel: "Division", value: gender, onChange: setGender, options: [{ value: "M", label: "MEN" }, { value: "W", label: "WOMEN" }] }), /* @__PURE__ */ React.createElement(Toggle, { ariaLabel: "Age group", value: age, onChange: setAge, options: [{ value: "40-44", label: "40\u201344" }, { value: "45-49", label: "45\u201349" }] })), /* @__PURE__ */ React.createElement("section", { style: { margin: "10px clamp(14px, 4vw, 36px) 0", border: `1px solid ${C.line}`, borderRadius: 10, overflow: "hidden", background: C.card } }, /* @__PURE__ */ React.createElement("div", { style: { overflowX: "auto" } }, /* @__PURE__ */ React.createElement("table", { style: { width: "100%", borderCollapse: "collapse", minWidth: 1140 } }, /* @__PURE__ */ React.createElement("thead", null, /* @__PURE__ */ React.createElement("tr", { style: { background: C.cardUp } }, ["RACE", "2026", "2027", "2028", "ENTRY WINDOW (NEXT)", "CHARITY MIN (USD)", `QUALIFYING \xB7 ${gender === "M" ? "MEN" : "WOMEN"} ${age}`, "APPLY"].map((h, i) => /* @__PURE__ */ React.createElement("th", { key: i, style: { fontFamily: fontDisplay, fontWeight: 600, fontSize: 12, letterSpacing: "0.14em", color: C.slate, textAlign: "left", padding: "11px 10px", borderBottom: `1px solid ${C.line}`, whiteSpace: "nowrap" } }, h)))), /* @__PURE__ */ React.createElement("tbody", null, data.races.map((r) => {
+  ), upcomingStrip.length > 0 && /* @__PURE__ */ React.createElement("div", { style: { display: "flex", gap: 10, overflowX: "auto", padding: "14px clamp(14px, 4vw, 36px) 4px" } }, upcomingStrip.map((e, i) => /* @__PURE__ */ React.createElement("div", { key: i, style: { minWidth: 210, flex: "0 0 auto", border: `1px solid ${C.line}`, borderRadius: 8, background: C.card, padding: "10px 12px" } }, /* @__PURE__ */ React.createElement("div", { style: { fontFamily: fontDisplay, fontWeight: 600, fontSize: 14, letterSpacing: "0.04em" } }, /* @__PURE__ */ React.createElement("span", { style: { marginRight: 6, verticalAlign: "middle" } }, /* @__PURE__ */ React.createElement(Flag, { cc: e.race.cc, emoji: e.race.flag, size: 18 })), e.label), /* @__PURE__ */ React.createElement("div", { style: { fontFamily: fontMono, fontSize: 12, color: C.amber, marginTop: 4 } }, e.t.toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric" })), /* @__PURE__ */ React.createElement("div", { style: { marginTop: 6 } }, /* @__PURE__ */ React.createElement(StatusPill, { status: e.status }))))), /* @__PURE__ */ React.createElement("div", { style: { display: "flex", gap: 14, flexWrap: "wrap", alignItems: "center", padding: "16px clamp(14px, 4vw, 36px) 6px" } }, /* @__PURE__ */ React.createElement("div", { style: { fontFamily: fontDisplay, fontSize: 12, letterSpacing: "0.2em", color: C.slate } }, "QUALIFYING TIMES (US RESIDENT) FOR"), /* @__PURE__ */ React.createElement(Toggle, { ariaLabel: "Division", value: gender, onChange: setGender, options: [{ value: "M", label: "MEN" }, { value: "W", label: "WOMEN" }] }), /* @__PURE__ */ React.createElement(Toggle, { ariaLabel: "Age group", value: age, onChange: setAge, options: [{ value: "40-44", label: "40\u201344" }, { value: "45-49", label: "45\u201349" }] })), /* @__PURE__ */ React.createElement("section", { style: { margin: "10px clamp(14px, 4vw, 36px) 0", border: `1px solid ${C.line}`, borderRadius: 10, overflow: "hidden", background: C.card } }, /* @__PURE__ */ React.createElement("div", { style: { overflowX: "auto" } }, /* @__PURE__ */ React.createElement("table", { style: { width: "100%", borderCollapse: "collapse", minWidth: 1320 } }, /* @__PURE__ */ React.createElement("thead", null, /* @__PURE__ */ React.createElement("tr", { style: { background: C.cardUp } }, ["RACE", "2026", "2027", "2028", "ENTRY WINDOW (NEXT)", "CHARITY MIN (USD)", `QUALIFYING \xB7 ${gender === "M" ? "MEN" : "WOMEN"} ${age}`, "TRAINING STARTS (18-WK)", "APPLY"].map((h, i) => /* @__PURE__ */ React.createElement("th", { key: i, style: { fontFamily: fontDisplay, fontWeight: 600, fontSize: 12, letterSpacing: "0.14em", color: C.slate, textAlign: "left", padding: "11px 10px", borderBottom: `1px solid ${C.line}`, whiteSpace: "nowrap" } }, h)))), /* @__PURE__ */ React.createElement("tbody", null, data.races.map((r) => {
     const isOpen = expanded === r.id;
     const nextWin = r.entry.windows.find((w) => windowState(w, now).key === "open") || r.entry.windows.find((w) => windowState(w, now).key === "upcoming") || r.entry.windows[r.entry.windows.length - 1] || null;
     const winSt = nextWin ? windowState(nextWin, now) : null;
@@ -478,15 +557,21 @@ function MajorsTracker() {
         onClick: () => setExpanded(isOpen ? null : r.id),
         style: { cursor: "pointer", borderBottom: isOpen ? "none" : `1px solid ${C.line}` }
       },
-      /* @__PURE__ */ React.createElement("td", { style: { padding: "11px 10px", whiteSpace: "nowrap", width: "1%" } }, /* @__PURE__ */ React.createElement("span", { style: { fontSize: 16, marginRight: 6 } }, r.flag), /* @__PURE__ */ React.createElement("span", { style: { fontFamily: fontDisplay, fontWeight: 700, fontSize: 17, letterSpacing: "0.02em" } }, r.name.toUpperCase()), r.candidate && /* @__PURE__ */ React.createElement("span", { style: { marginLeft: 6 } }, /* @__PURE__ */ React.createElement(StatusPill, { status: "candidate" })), /* @__PURE__ */ React.createElement("span", { style: { color: C.slate, marginLeft: 6, fontSize: 12 } }, isOpen ? "\u25BE" : "\u25B8")),
+      /* @__PURE__ */ React.createElement("td", { style: { padding: "11px 10px", whiteSpace: "nowrap", width: "1%" } }, /* @__PURE__ */ React.createElement("span", { style: { marginRight: 8, verticalAlign: "middle" } }, /* @__PURE__ */ React.createElement(Flag, { cc: r.cc, emoji: r.flag, size: 22 })), /* @__PURE__ */ React.createElement("span", { style: { fontFamily: fontDisplay, fontWeight: 700, fontSize: 17, letterSpacing: "0.02em" } }, r.name.toUpperCase()), r.candidate && /* @__PURE__ */ React.createElement("span", { style: { marginLeft: 6 } }, /* @__PURE__ */ React.createElement(StatusPill, { status: "candidate" })), /* @__PURE__ */ React.createElement("span", { style: { color: C.slate, marginLeft: 6, fontSize: 12 } }, isOpen ? "\u25BE" : "\u25B8")),
       r.editions.map((e) => {
         const isNext = nextEd && e.year === nextEd.year;
         const dleft = isNext ? daysUntil(e.date, now) : null;
         return /* @__PURE__ */ React.createElement("td", { key: e.year, style: { padding: "11px 10px", whiteSpace: "nowrap" } }, /* @__PURE__ */ React.createElement("div", { style: { fontFamily: fontMono, fontSize: 13, color: e.status === "completed" ? C.slate : C.paper, textDecoration: e.status === "completed" ? "line-through" : "none" } }, e.status === "projected" ? "~ " : "", fmtNoYear(e.date)), /* @__PURE__ */ React.createElement("div", { style: { marginTop: 3, display: "flex", flexDirection: "column", gap: 3, alignItems: "flex-start" } }, /* @__PURE__ */ React.createElement(StatusPill, { status: e.status }), isNext && dleft >= 0 && /* @__PURE__ */ React.createElement("span", { style: { fontFamily: fontDisplay, fontWeight: 700, letterSpacing: "0.06em", fontSize: 10.5, color: C.amber, whiteSpace: "nowrap" } }, dleft === 0 ? "TODAY! \u{1F3C3}" : `${dleft} ${dleft === 1 ? "DAY" : "DAYS"} AWAY`)));
       }),
-      /* @__PURE__ */ React.createElement("td", { style: { padding: "11px 10px", whiteSpace: "nowrap" } }, nextWin ? /* @__PURE__ */ React.createElement(React.Fragment, null, /* @__PURE__ */ React.createElement("div", { style: { fontFamily: fontMono, fontSize: 13 } }, nextWin.status === "projected" ? "~ " : "", fmtNoYear(nextWin.open), " \u2013 ", fmtShort(nextWin.close)), /* @__PURE__ */ React.createElement("div", { style: { marginTop: 4, display: "flex", gap: 6 } }, /* @__PURE__ */ React.createElement(WindowPill, { state: winSt }), /* @__PURE__ */ React.createElement(StatusPill, { status: nextWin.status }))) : /* @__PURE__ */ React.createElement("span", { style: { fontFamily: fontMono, fontSize: 13, color: C.slate } }, "\u2014 pending elevation")),
+      /* @__PURE__ */ React.createElement("td", { style: { padding: "11px 10px", whiteSpace: "nowrap" } }, nextWin ? /* @__PURE__ */ React.createElement(React.Fragment, null, /* @__PURE__ */ React.createElement("div", { style: { fontFamily: fontMono, fontSize: 13 } }, nextWin.status === "projected" ? "~ " : "", fmtNoYear(nextWin.open), " \u2013 ", fmtShort(nextWin.close)), /* @__PURE__ */ React.createElement("div", { style: { marginTop: 4, display: "flex", gap: 6 } }, /* @__PURE__ */ React.createElement(WindowPill, { state: winSt }), /* @__PURE__ */ React.createElement(StatusPill, { status: nextWin.status })), r.drawOdds && /* @__PURE__ */ React.createElement("div", { style: { fontFamily: fontMono, fontSize: 11, marginTop: 4, color: oddsColor(r.drawOdds) } }, /* @__PURE__ */ React.createElement("span", { style: { color: C.slate } }, "draw: "), r.drawOdds)) : /* @__PURE__ */ React.createElement("span", { style: { fontFamily: fontMono, fontSize: 13, color: C.slate } }, "\u2014 pending elevation")),
       /* @__PURE__ */ React.createElement("td", { style: { padding: "11px 10px", whiteSpace: "nowrap" } }, /* @__PURE__ */ React.createElement("span", { style: { fontFamily: fontMono, fontSize: 13, color: r.charityUSD === "TBD" ? C.slate : C.paper } }, r.charityUSD)),
-      /* @__PURE__ */ React.createElement("td", { style: { padding: "11px 10px", whiteSpace: "nowrap" } }, qtVal ? /* @__PURE__ */ React.createElement(React.Fragment, null, /* @__PURE__ */ React.createElement("span", { style: { fontFamily: fontMono, fontWeight: 600, fontSize: 16, color: C.amber } }, qtVal), r.buffer && /* @__PURE__ */ React.createElement("div", { style: { fontFamily: fontMono, fontSize: 10.5, color: C.slate, marginTop: 3, whiteSpace: "normal", maxWidth: 190 } }, r.buffer)) : /* @__PURE__ */ React.createElement("span", { style: { fontFamily: fontMono, fontSize: 13, color: C.slate } }, "\u2014")),
+      /* @__PURE__ */ React.createElement("td", { style: { padding: "11px 10px", whiteSpace: "nowrap" } }, qtVal ? /* @__PURE__ */ React.createElement(React.Fragment, null, /* @__PURE__ */ React.createElement("span", { style: { fontFamily: fontMono, fontWeight: 600, fontSize: 16, color: C.amber } }, qtVal), /* @__PURE__ */ React.createElement("div", { style: { fontFamily: fontMono, fontSize: 11, color: C.blue, marginTop: 2 } }, pacePerMile(qtVal), " /mi"), r.buffer && /* @__PURE__ */ React.createElement("div", { style: { fontFamily: fontMono, fontSize: 10.5, color: C.slate, marginTop: 3, whiteSpace: "normal", maxWidth: 190 } }, r.buffer)) : /* @__PURE__ */ React.createElement("span", { style: { fontFamily: fontMono, fontSize: 13, color: C.slate } }, "\u2014")),
+      /* @__PURE__ */ React.createElement("td", { style: { padding: "11px 10px", whiteSpace: "nowrap" } }, nextEd ? (() => {
+        const ts = trainingStartDate(nextEd.date);
+        const dToStart = Math.ceil((ts - now) / DAY);
+        const started = dToStart <= 0;
+        return /* @__PURE__ */ React.createElement(React.Fragment, null, /* @__PURE__ */ React.createElement("div", { style: { fontFamily: fontMono, fontSize: 13, color: C.paper } }, fmtDateObj(ts)), /* @__PURE__ */ React.createElement("div", { style: { fontFamily: fontDisplay, fontWeight: 700, letterSpacing: "0.05em", fontSize: 10.5, marginTop: 3, color: started ? C.green : C.amber } }, started ? "TRAIN NOW" : `IN ${dToStart} ${dToStart === 1 ? "DAY" : "DAYS"}`));
+      })() : /* @__PURE__ */ React.createElement("span", { style: { fontFamily: fontMono, fontSize: 13, color: C.slate } }, "\u2014")),
       /* @__PURE__ */ React.createElement("td", { style: { padding: "11px 10px", whiteSpace: "nowrap" } }, /* @__PURE__ */ React.createElement(
         "a",
         {
@@ -511,7 +596,7 @@ function MajorsTracker() {
         },
         "APPLY \u2197"
       ))
-    ), isOpen && /* @__PURE__ */ React.createElement("tr", { style: { borderBottom: `1px solid ${C.line}` } }, /* @__PURE__ */ React.createElement("td", { colSpan: 8, style: { padding: "0 14px 16px", background: "rgba(0,0,0,0.14)" } }, /* @__PURE__ */ React.createElement("div", { style: { display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(250px, 1fr))", gap: 16, paddingTop: 14 } }, /* @__PURE__ */ React.createElement("div", null, /* @__PURE__ */ React.createElement("div", { style: { fontFamily: fontDisplay, fontSize: 11, letterSpacing: "0.2em", color: C.slate, marginBottom: 6 } }, "HOW ENTRY WORKS"), /* @__PURE__ */ React.createElement("div", { style: { fontSize: 13, lineHeight: 1.55 } }, /* @__PURE__ */ React.createElement("strong", null, r.entry.method, "."), " ", r.entry.odds)), /* @__PURE__ */ React.createElement("div", null, /* @__PURE__ */ React.createElement("div", { style: { fontFamily: fontDisplay, fontSize: 11, letterSpacing: "0.2em", color: C.slate, marginBottom: 6 } }, "ENTRY WINDOWS"), r.entry.windows.map((w, i) => /* @__PURE__ */ React.createElement("div", { key: i, style: { fontSize: 13, lineHeight: 1.55, marginBottom: 6 } }, /* @__PURE__ */ React.createElement("span", { style: { fontFamily: fontMono, color: C.paper } }, w.status === "projected" ? "~ " : "", fmtShort(w.open), " \u2192 ", fmtShort(w.close)), /* @__PURE__ */ React.createElement("span", { style: { color: C.slate } }, " \xB7 ", w.label), w.results && /* @__PURE__ */ React.createElement("span", { style: { color: C.slate } }, " \xB7 results ", fmtShort(w.results))))), /* @__PURE__ */ React.createElement("div", null, /* @__PURE__ */ React.createElement("div", { style: { fontFamily: fontDisplay, fontSize: 11, letterSpacing: "0.2em", color: C.slate, marginBottom: 6 } }, "QUALIFYING \xB7 YOUR GROUP"), r.qt ? /* @__PURE__ */ React.createElement("div", { style: { fontSize: 13, lineHeight: 1.55 } }, /* @__PURE__ */ React.createElement("span", { style: { fontFamily: fontMono, fontWeight: 600, color: C.amber, fontSize: 15 } }, r.qt[gender][age]), /* @__PURE__ */ React.createElement("span", { style: { color: C.slate } }, " (", gender === "M" ? "men" : "women", " ", age, ")"), /* @__PURE__ */ React.createElement("div", { style: { color: C.slate, marginTop: 4 } }, r.qt.basis), r.buffer && /* @__PURE__ */ React.createElement("div", { style: { marginTop: 4 } }, /* @__PURE__ */ React.createElement("span", { style: { fontFamily: fontDisplay, fontSize: 11, letterSpacing: "0.14em", color: C.amber } }, "BUFFER: "), r.buffer), /* @__PURE__ */ React.createElement("div", { style: { marginTop: 4 } }, r.qtNote)) : /* @__PURE__ */ React.createElement("div", { style: { fontSize: 13, lineHeight: 1.55, color: C.slate } }, r.qtNote)), /* @__PURE__ */ React.createElement("div", null, /* @__PURE__ */ React.createElement("div", { style: { fontFamily: fontDisplay, fontSize: 11, letterSpacing: "0.2em", color: C.slate, marginBottom: 6 } }, "OTHER WAYS IN"), /* @__PURE__ */ React.createElement("div", { style: { fontSize: 13, lineHeight: 1.55 } }, r.entry.other), r.charityNote && /* @__PURE__ */ React.createElement("div", { style: { fontSize: 13, lineHeight: 1.55, marginTop: 6, color: C.slate } }, "\u{1F4B5} ", r.charityNote), /* @__PURE__ */ React.createElement(
+    ), isOpen && /* @__PURE__ */ React.createElement("tr", { style: { borderBottom: `1px solid ${C.line}` } }, /* @__PURE__ */ React.createElement("td", { colSpan: 9, style: { padding: "0 14px 16px", background: "rgba(0,0,0,0.14)" } }, /* @__PURE__ */ React.createElement("div", { style: { display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(250px, 1fr))", gap: 16, paddingTop: 14 } }, /* @__PURE__ */ React.createElement("div", null, /* @__PURE__ */ React.createElement("div", { style: { fontFamily: fontDisplay, fontSize: 11, letterSpacing: "0.2em", color: C.slate, marginBottom: 6 } }, "HOW ENTRY WORKS"), /* @__PURE__ */ React.createElement("div", { style: { fontSize: 13, lineHeight: 1.55 } }, /* @__PURE__ */ React.createElement("strong", null, r.entry.method, "."), " ", r.entry.odds)), /* @__PURE__ */ React.createElement("div", null, /* @__PURE__ */ React.createElement("div", { style: { fontFamily: fontDisplay, fontSize: 11, letterSpacing: "0.2em", color: C.slate, marginBottom: 6 } }, "ENTRY WINDOWS"), r.entry.windows.map((w, i) => /* @__PURE__ */ React.createElement("div", { key: i, style: { fontSize: 13, lineHeight: 1.55, marginBottom: 6 } }, /* @__PURE__ */ React.createElement("span", { style: { fontFamily: fontMono, color: C.paper } }, w.status === "projected" ? "~ " : "", fmtShort(w.open), " \u2192 ", fmtShort(w.close)), /* @__PURE__ */ React.createElement("span", { style: { color: C.slate } }, " \xB7 ", w.label), w.results && /* @__PURE__ */ React.createElement("span", { style: { color: C.slate } }, " \xB7 results ", fmtShort(w.results))))), /* @__PURE__ */ React.createElement("div", null, /* @__PURE__ */ React.createElement("div", { style: { fontFamily: fontDisplay, fontSize: 11, letterSpacing: "0.2em", color: C.slate, marginBottom: 6 } }, "QUALIFYING \xB7 YOUR GROUP"), r.qt ? /* @__PURE__ */ React.createElement("div", { style: { fontSize: 13, lineHeight: 1.55 } }, /* @__PURE__ */ React.createElement("span", { style: { fontFamily: fontMono, fontWeight: 600, color: C.amber, fontSize: 15 } }, r.qt[gender][age]), /* @__PURE__ */ React.createElement("span", { style: { color: C.slate } }, " (", gender === "M" ? "men" : "women", " ", age, ")"), /* @__PURE__ */ React.createElement("div", { style: { fontFamily: fontMono, fontSize: 12, color: C.blue, marginTop: 3 } }, "\u2248 ", pacePerMile(r.qt[gender][age]), " per mile for 26.2"), /* @__PURE__ */ React.createElement("div", { style: { color: C.slate, marginTop: 4 } }, r.qt.basis), r.buffer && /* @__PURE__ */ React.createElement("div", { style: { marginTop: 4 } }, /* @__PURE__ */ React.createElement("span", { style: { fontFamily: fontDisplay, fontSize: 11, letterSpacing: "0.14em", color: C.amber } }, "BUFFER: "), r.buffer), /* @__PURE__ */ React.createElement("div", { style: { marginTop: 4 } }, r.qtNote)) : /* @__PURE__ */ React.createElement("div", { style: { fontSize: 13, lineHeight: 1.55, color: C.slate } }, r.qtNote)), /* @__PURE__ */ React.createElement("div", null, /* @__PURE__ */ React.createElement("div", { style: { fontFamily: fontDisplay, fontSize: 11, letterSpacing: "0.2em", color: C.slate, marginBottom: 6 } }, "OTHER WAYS IN"), /* @__PURE__ */ React.createElement("div", { style: { fontSize: 13, lineHeight: 1.55 } }, r.entry.other), r.charityNote && /* @__PURE__ */ React.createElement("div", { style: { fontSize: 13, lineHeight: 1.55, marginTop: 6, color: C.slate } }, "\u{1F4B5} ", r.charityNote), /* @__PURE__ */ React.createElement(
       "a",
       {
         href: r.applyUrl,
@@ -536,7 +621,7 @@ function MajorsTracker() {
       r.site.toUpperCase(),
       " \u2197"
     ))))));
-  }))))), /* @__PURE__ */ React.createElement("footer", { style: { padding: "20px clamp(14px, 4vw, 36px) 0", fontSize: 12.5, lineHeight: 1.7, color: C.slate, maxWidth: 980 } }, /* @__PURE__ */ React.createElement("p", { style: { margin: "0 0 8px" } }, /* @__PURE__ */ React.createElement("span", { style: { color: C.blue } }, "~ PROJECTED"), " dates follow the race's most recent confirmed cycle and haven't been announced by the organizer yet \u2014 always verify on the official site (tap APPLY) before a window opens. This tracker is refreshed monthly with the latest confirmed dates."), /* @__PURE__ */ React.createElement("p", { style: { margin: "0 0 8px" } }, `Age brackets: Boston, Chicago, NYC, and Sydney use your age on race day (a 44-year-old racing at 45 uses the 45\u201349 standard). London Good for Age uses your age when you ran the time and is UK residents only. Berlin's brackets are \u226444 and 45\u201359, so its "40\u201344" and "45\u201349" figures shown here are those two brackets. Berlin and Chicago qualifiers get guaranteed entry; Boston, NYC, Sydney, and London are fastest-first.`), /* @__PURE__ */ React.createElement("p", { style: { margin: 0 } }, "Cape Town became the 8th Major in June 2026 (first edition with full status: May 2027). Shanghai is shown as a CANDIDATE \u2014 it's in the official AbbottWMM assessment program and would become the 9th star; the update checker will flip it to full Major automatically once announced. BUFFER = how much faster than the standard you realistically need for fastest-first races (Boston's 2026 cutoff was 4:34 under). Charity minimums are per-charity floors in approximate USD \u2014 individual charities set their own, often higher. One more route: the AbbottWMM Race Draws at worldmarathonmajors.com \u2014 a members-only lottery for runners with 3\u20135 stars.")));
+  }))))), /* @__PURE__ */ React.createElement("footer", { style: { padding: "20px clamp(14px, 4vw, 36px) 0", fontSize: 12.5, lineHeight: 1.7, color: C.slate, maxWidth: 980 } }, /* @__PURE__ */ React.createElement("p", { style: { margin: "0 0 8px" } }, /* @__PURE__ */ React.createElement("span", { style: { color: C.blue } }, "~ PROJECTED"), " dates follow the race's most recent confirmed cycle and haven't been announced by the organizer yet \u2014 always verify on the official site (tap APPLY) before a window opens. This tracker is refreshed monthly with the latest confirmed dates."), /* @__PURE__ */ React.createElement("p", { style: { margin: "0 0 8px" } }, `All qualifying times shown are the standards open to US residents. London is the only Major whose time route is residency-restricted \u2014 its Good for Age program is UK-residents only, so London shows no US time qualifier (ballot, charity, or tour operator instead). Age brackets: Boston, Chicago, NYC, and Sydney use your age on race day (a 44-year-old racing at 45 uses the 45\u201349 standard). Berlin's brackets are \u226444 and 45\u201359, so its "40\u201344" and "45\u201349" figures shown here are those two brackets. Berlin and Chicago qualifiers get guaranteed entry; Boston, NYC, and Sydney are fastest-first.`), /* @__PURE__ */ React.createElement("p", { style: { margin: "0 0 8px" } }, /* @__PURE__ */ React.createElement("span", { style: { color: C.blue } }, "/mi"), " is the even pace per mile needed to hit that qualifying time across the full 26.2 miles. ", /* @__PURE__ */ React.createElement("span", { style: { color: C.amber } }, "TRAINING STARTS"), ` counts back 18 weeks from each race's next edition \u2014 a typical marathon-plan length; for a 16- or 20-week build, shift a couple of weeks either way. "TRAIN NOW" means that 18-week window has already begun.`), /* @__PURE__ */ React.createElement("p", { style: { margin: 0 } }, "Cape Town became the 8th Major in June 2026 (first edition with full status: May 2027). Shanghai is shown as a CANDIDATE \u2014 it's in the official AbbottWMM assessment program and would become the 9th star. BUFFER = how much faster than the standard you realistically need for fastest-first races (Boston's 2026 cutoff was 4:34 under). Charity minimums are per-charity floors in approximate USD \u2014 individual charities set their own, often higher. One more route: the AbbottWMM Race Draws at worldmarathonmajors.com \u2014 a members-only lottery for runners with 3\u20135 stars.")));
 }
 
 ReactDOM.createRoot(document.getElementById('root')).render(React.createElement(MajorsTracker));
